@@ -6,7 +6,7 @@ pygame.init()
 
 clock = pygame.time.Clock()
 figura = pygame.image.load("./figura.jpg")
-janela = pygame.display.set_mode([1366, 768])
+janela = pygame.display.set_mode([1366, 768], pygame.FULLSCREEN)
 
 rodando = True
 
@@ -17,7 +17,9 @@ sy = 50
 
 while rodando:
     for event in pygame.event.get():
-        if event.type == QUIT:
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            rodando = False
+        if event.type == pygame.KEYDOWN:
             rodando = False
 
     delta = clock.tick(30) / 1000
@@ -31,7 +33,7 @@ while rodando:
         sy *= -1
 
     janela.fill((0,0,0))
-    janela.blit(figura, (x,y))
+    janela.blit(figura, (int(x),int(y)))
     pygame.display.update()
 
 pygame.quit()
