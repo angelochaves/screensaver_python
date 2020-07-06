@@ -7,7 +7,7 @@ import random
 pygame.init()
 
 clock = pygame.time.Clock()
-window = pygame.display.set_mode([1366, 768])#, pygame.FULLSCREEN)
+window = pygame.display.set_mode([1366, 768], pygame.FULLSCREEN)
 
 running = True
 
@@ -40,7 +40,7 @@ while running:
 
     window.fill((0,0,0))
 
-    qtyChains = (int)(random.triangular(10, 100))
+    qtyChains = (int)(random.triangular(10, 200))
     for i in range(qtyChains):
         newchain = Chain()
         ffont = pygame.font.Font('arial.ttf', newchain.fontsize)
